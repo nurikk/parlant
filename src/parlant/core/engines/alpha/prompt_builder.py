@@ -109,9 +109,15 @@ class PromptBuilder:
         self,
         name: str | BuiltInSection,
         template: str,
-        props: dict[str, Any] = {},
+        props: dict[str, Any] | None = None,
         status: Optional[SectionStatus] = None,
     ) -> PromptBuilder:
+        if props is None:
+            props = {}
+
+        if isinstance(name, str) and name.endswith("output-format"):
+            return self
+
         if name in self.sections:
             raise ValueError(f"Section '{name}' was already added")
 

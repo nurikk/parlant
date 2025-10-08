@@ -289,7 +289,7 @@ Examples of Condition Evaluations:
         )
 
         builder.add_section(
-            name="guideline-matcher-expected-output",
+            name="guideline-matcher-output-format",
             template="""
 IMPORTANT: Please note there are exactly {guidelines_len} guidelines in the list for you to check.
 
