@@ -115,7 +115,7 @@ class GenericObservationalGuidelineMatchingBatch(GuidelineMatchingBatch):
                     matches = []
 
                     for match in inference.content.checks:
-                        if self._match_applies(match):
+                        if self._match_applies(match) and match.guideline_id in self._guidelines:
                             self._logger.debug(f"Activated:\n{match.model_dump_json(indent=2)}")
 
                             matches.append(
